@@ -46,9 +46,6 @@ export const updateContact = ctrlWrapper(async (req, res) => {
   if (error) {
     throw HttpError(400, error.message);
   }
-  if (Object.keys(req.body).length === 0) {
-    throw HttpError(400, 'Body must have at least one field');
-  }
   const { id } = req.params;
   const result = await updateContactById(id, req.body);
   if (!result) {
